@@ -13,18 +13,19 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
-    private LocalDateTime date_start;
+    private LocalDateTime date_start = LocalDateTime.now();
     @Enumerated
     private TaskStatus status;
     @Enumerated
     private TaskType type;
 
     public Task() { }
-    public Task(String title, LocalDateTime date_start, TaskStatus status, TaskType type) {
+
+    public Task(String title, TaskStatus status, TaskType type, User user) {
         this.title = title;
-        this.date_start = date_start;
         this.status = status;
         this.type = type;
+        this.user = user;
     }
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.LAZY)

@@ -9,17 +9,22 @@ import java.time.LocalDateTime;
 
 public class TaskDto {
     private String title;
-    private LocalDateTime date_start;
     private TaskStatus status;
     private TaskType type;
-    private User user;
+    private Long user_id;
 
-    public TaskDto(String title, LocalDateTime date_start, TaskStatus status, TaskType type, User user) {
+    public TaskDto(String title, TaskStatus status, TaskType type) {
         this.title = title;
-        this.date_start = date_start;
         this.status = status;
         this.type = type;
-        this.user = user;
+    }
+
+    public Long getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(Long user_id) {
+        this.user_id = user_id;
     }
 
     public String getTitle() {
@@ -29,15 +34,6 @@ public class TaskDto {
     public void setTitle(String title) {
         this.title = title;
     }
-
-    public LocalDateTime getDate_start() {
-        return date_start;
-    }
-
-    public void setDate_start(LocalDateTime date_start) {
-        this.date_start = date_start;
-    }
-
     public TaskStatus getStatus() {
         return status;
     }
@@ -54,11 +50,4 @@ public class TaskDto {
         this.type = type;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }
