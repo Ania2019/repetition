@@ -2,6 +2,7 @@ package com.example.exam_day.task;
 
 import com.example.exam_day.task.enums.TaskStatus;
 import com.example.exam_day.task.enums.TaskType;
+import com.example.exam_day.user.User;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -24,6 +25,18 @@ public class Task {
         this.date_start = date_start;
         this.status = status;
         this.type = type;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Long getId() {
