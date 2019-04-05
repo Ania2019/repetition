@@ -16,8 +16,8 @@ public class TaskController {
         this.taskService = taskService;
     }
     @PostMapping("/task")
-    public TaskDto saveTaskByUser(Long user_id, TaskDto taskDto){
-        return taskService.saveUser(user_id, taskDto);
+    public TaskDto saveTaskByUser(TaskDto taskDto){
+        return taskService.saveUser(taskDto);
     }
     @GetMapping("/tasks/{task_id}")
     public TaskDto getTaskById(@PathVariable("task_id") Long task_id){

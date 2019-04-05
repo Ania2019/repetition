@@ -14,8 +14,8 @@ public class TaskService {
         this.taskRepository = taskRepository;
         this.userRepository = userRepository;
     }
-    public TaskDto saveUser(Long user_id, TaskDto taskDto){
-        User user = userRepository.getOne(user_id);
+    public TaskDto saveUser(TaskDto taskDto){
+        User user = userRepository.getOne(taskDto.getUser_id());
         Task task = new Task(
                 taskDto.getTitle(),
                 taskDto.getStatus(),
