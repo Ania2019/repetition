@@ -27,7 +27,7 @@ public class Task {
         this.type = type;
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
